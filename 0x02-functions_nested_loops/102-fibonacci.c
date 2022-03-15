@@ -15,3 +15,4 @@ x = y;
 y = sum;
 if (i == 48)
 printf
+}
