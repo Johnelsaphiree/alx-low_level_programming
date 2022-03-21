@@ -1,28 +1,21 @@
 #include "main.h"
 
 /**
- * rev_string - reverses a string
- * @s: string to be reversed
+ * puts2 - Swaps integers wih pointers.
+ *
+ * @str: is a pointer to a char
+ *
+ * Return: Always 0.
  */
-void rev_string(char *s)
+
+void puts2(char *str)
 {
-	char tmp;
-	int i, len, len1;
+int j;
 
-	len = 0;
-	len1 = 0;
-
-	while (s[len] != '\0')
+	for (j = 0; *(str + j) != '\0'; j++)
 	{
-		len++;
+		if (j % 2 == 0)
+		_putchar(*(str + j));
 	}
-
-	len1 = len - 1;
-
-	for (i = 0; i < len / 2; i++)
-	{
-		tmp = s[i];
-		s[i] = s[len1];
-		s[len1--] = tmp;
-	}
+_putchar('\n');
 }
