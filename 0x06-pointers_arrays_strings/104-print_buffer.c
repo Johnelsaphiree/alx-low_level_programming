@@ -1,47 +1,50 @@
 #include "main.h"
-#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * print_number - Prints an integer with only _putchar
- *
- * @n: Integer parameter
+ * print_buffer - prints buffer
+ * @b: buffer
+ * @size: size
+ * Return: void
  */
-void print_number(int n)
+
+void print_buffer(char *b, int size)
 {
-	int i, l, x, h, ans, consN, superN;
+	int o, j, i;
 
-	if (n < 0)
-		_putchar('-');
+	o = 0;
 
-	consN = n, ans = n, superN = n;
-
-	if (n < 0)
-		for (l = 0; superN < 0; ++l)
-			superN /= 10;
-	else
-		for (l = 0; superN > 0; ++l)
-			superN /= 10;
-
-	h = l - 1;
-
-	if (n == 0)
+	if (size <= 0)
 	{
-		_putchar('0');
+		printf("\n");
+		return;
 	}
-	else
+	while (o < size)
 	{
-		for (i = 0; i < l; i++)
+		j = size - o < 10 ? size - o : 10;
+		printf("%08x: ", o);
+		for (i = 0; i < 10; i++)
 		{
-			x = h;
-			while (x)
+			if (i < j)
+				printf("%02x", *(b + o + i));
+			else
+				printf("  ");
+			if (i % 2)
 			{
-				ans = ans / 10;
-				x--;
+				printf(" ");
 			}
-			ans =  ans % 10;
-			_putchar(abs(ans)  + '0');
-			ans = consN;
-			h--;
 		}
+		for (i = 0; i < j; i++)
+		{
+			int c = *(b + o + i);
+
+			if (c < 32 || c > 132)
+			{
+				c = '.';
+			}
+			printf("%c", c);
+		}
+		printf("\n");
+		o += 10;
 	}
 }
