@@ -12,6 +12,11 @@ void _puts_recursion(char *s)
 		_putchar(*s);
 		_puts_recursion(s + 1);
 	}
+<<<<<<< HEAD
 	else
 		_putchar('\n');
+=======
+	_putchar(*s);
+	_puts_recursion(s + 1);
+>>>>>>> 74885f06e81c2ca5cf628d76b34f131b2e6ffb8a
 }
