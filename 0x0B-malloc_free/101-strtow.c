@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 int w_count(char *str, int size);
@@ -65,6 +64,6 @@ int w_count(char *str, int size)
 int _strlen_recursion(char *s)
 {
 	if (*s != '\0')
-		return (1 + _strlen_recursion(++s));
+		return (1 + _strlen_recursion(s + 1));
 	return (0);
 }
